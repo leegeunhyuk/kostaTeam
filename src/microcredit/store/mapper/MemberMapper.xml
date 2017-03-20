@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="microcredit.store.mapper.MemberMapper">
+	<resultMap type="Member" id="memberMap">
+		<id column="id" property="id" />
+		<result column="pw" property="pw" />
+		<result column="name" property="name" />
+		<result column="gender" property="gender" />
+		<result column="email" property="email" />
+		<result column="status" property="status" />
+		<result column="phone" property="phone" />
+		<result column="cash" property="cash" />
+		<!-- <collection property="blogs" column="blogid" ofType="blog" -->
+		<!-- select="microcredit.store.mapper.BlogMapper.findPostsByBlogId" -->
+		<!-- javaType="ArrayList" jdbcType="NUMERIC"/> -->
+		<!-- <collection property="posts" column="blog_id" ofType="Post" -->
+		<!-- select="blog.store.mapper.PostMapper.findPostsByBlogId" -->
+		<!-- javaType="ArrayList" jdbcType="NUMERIC"/> -->
+	</resultMap>
+
+	<insert id="createMember" parameterType="Member">
+		INSERT INTO member_tb(id, pw, name, gender, status, phone, email, cash) 
+		VALUES(#{id}, #{pw}, #{name}, #{gender}, #{status}, #{phone}, #{email}, #{cash})
+	</insert>
+	
+	<update id="updateMember" parameterType="Member">
+		UPDATE member_tb SET pw = #{pw}, name = #{name}, status = #{status}, phone = #{phone}, email = #{email}, cash = #{cash} 
+		WHERE id = #{id}
+	</update>
+	
+	<select id="searchMemberById" parameterType="String" resultMap="memberMap">
+		SELECT * FROM member_tb
+		WHERE id = #{id}
+	</select>
+	
+	
+
+</mapper>
