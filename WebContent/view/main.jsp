@@ -23,7 +23,7 @@
 							<div class="panel-heading" >
                           		${category }<br><br><br><br><br>
                         	</div>
-                        <a href="#">
+                        <a href="detailList.do?category=${category }">
                             <div class="panel-footer">
                                 <span class="pull-left">Learn More</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
