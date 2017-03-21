@@ -11,7 +11,7 @@ public interface LoanApplyService {
 	public boolean modifyLoanApply(LoanApply loanApply);
 	public boolean dropLoanApply(int loanApplyId);
 	public List<LoanApply> findAllLoanApply();
-	public List<LoanApply> findLoanApplyByCategory(Category category);
+	public List<LoanApply> findLoanApplyByCategory(String category);
 	public List<LoanApply> findLoanApplyByKeyword(String key);
 	public List<LoanApply> findLoanApplyByCondition(Category category);
 	public LoanApply findLoanApplyByMemberId(String memberId);

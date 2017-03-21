@@ -11,7 +11,7 @@ public interface LoanApplyMapper {
 	public boolean updateLoanApply(LoanApply loanApply);
 	public boolean deleteLoanApply(int loanApplyId);
 	public List<LoanApply> searchAllLoanApply();
-	public List<LoanApply> searchLoanApplyByCategory(Category category);
+	public List<LoanApply> searchLoanApplyByCategory(String category);
 	public List<LoanApply> searchLoanApplyByKeyword(String key);
 	public List<LoanApply> searchLoanApplyByCondition(Category category);
 	public LoanApply searchLoanApplyByMemberId(String memberId);

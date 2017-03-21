@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="microcredit.store.mapper.LoanApplyMapper">
+	<resultMap type="LoanApply" id="loanApplyMap">
+		<id column="id" property="id" />
+		<result column="title" property="title" />
+		<result column="categoryid" property="category" />
+		<result column="targetMoney" property="targetMoney" />
+		<result column="currentMoney" property="currentMoney" />
+		<result column="contents" property="contents" />
+		<result column="startDate" property="startDate" />
+		<result column="endDate" property="endDate" />
+		<result column="status" property="status" />
+		<association property="borrower" column="memberid" 
+			select="microcredit.store.mapper.MemberMapper.searchMemberById"
+			javaType="Member" jdbcType="VARCHAR"/>
+	</resultMap>
+	<sql id="selectLoanApply">
+		SELECT id, title, targetmoney, currentmoney, status,
+		contents, startdate, enddate, memberid, CATEGORYID
+		FROM loanApply_tb
+	</sql>
+
+	<select id="searchLoanApplyByMemberId" parameterType="string"
+		resultMap="loanApplyMap">
+		<include refid="selectLoanApply" />
+		WHERE memberId = #{borrower.id}
+	</select>
+	
+	<select id="searchLoanApplyByCategory" parameterType="String" resultMap="loanApplyMap">
+		<include refid="selectLoanApply" /> 
+		WHERE categoryid IN (SELECT id FROM category_tb WHERE name = #{category})	</select>
+
+</mapper>

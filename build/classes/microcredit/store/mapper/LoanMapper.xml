@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="microcredit.store.mapper.LoanMapper">
+
+	<resultMap type="Loan" id="loanMap">
+		<id column="id" property="id" />
+		<result column="lendmoney" property="lendMoney" />
+		<result column="loanApply_id" property="loanApply.id" />
+		<association property="loanApply" column="loanApply_id"
+			select="microcredit.store.mapper.LoanApplyMapper.searchLoanApplyByMemberId"
+			javaType="LoanApply" jdbcType="NUMERIC" />
+		<association property="lender" column="member_id"
+			select="microcredit.store.mapper.MemberMapper.searchMemberById"
+			javaType="Member" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<sql id="selectLoan">
+		SELECT id, lendMoney, loanApply_id, member_id
+		FROM loan_tb
+	</sql>
+
+	<select id="searchLoanByMemberId" parameterType="string"
+		resultMap="loanMap">
+		<include refid="selectLoan" />
+		WHERE member_id = #{lender.id}
+	</select> 
+
+	<select id="searchLoanByLoanApplyId" parameterType="int"
+		resultMap="loanMap">
+		<include refid="selectLoan" />
+		WHERE loanApply_id = #{loanApply.id}
+	</select> 
+
+</mapper>

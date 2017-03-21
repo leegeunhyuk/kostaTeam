@@ -6,7 +6,7 @@ import java.util.List;
 public class LoanApply {
 
 	private int id;
-	private Category category;
+	private String category;
 	private String title;
 	private String contents; 
 	private double targetMoney;
@@ -30,10 +30,10 @@ public class LoanApply {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Category getCategory() {
+	public String getCategory() {
 		return category;
 	}
-	public void setCategory(Category category) {
+	public void setCategory(String category) {
 		this.category = category;
 	}
 	public String getTitle() {
