@@ -1,6 +1,6 @@
 package microcredit.domain;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 public class LoanApply {
@@ -15,13 +15,13 @@ public class LoanApply {
 	private Date endDate;
 	private String status;
 	private Member borrower;
-	private List<file> files;
+	private List<File> files;
 	
 	
-	public List<file> getFiles() {
+	public List<File> getFiles() {
 		return files;
 	}
-	public void setFiles(List<file> files) {
+	public void setFiles(List<File> files) {
 		this.files = files;
 	}
 	public int getId() {

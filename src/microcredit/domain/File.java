@@ -1,6 +1,6 @@
 package microcredit.domain;
 
-public class file {
+public class File {
 
 	private String type;
 	private String name;
@@ -17,5 +17,5 @@ public class file {
 		this.name = name;
 	}
 	
-	
 }
+

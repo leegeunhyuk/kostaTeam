@@ -87,9 +87,13 @@
 				</div>
 				<div class="form-group">
 					<label>File input</label> 
-					<input multiple="multiple" type="file" name="filename[]">
+					<input type="file" name="uploadfile1" style="float:right;">
+					<input type="file" name="uploadfile2" style="float:right;">
+					<input type="file" name="uploadfile3" style="float:right;">
+					<input type="file" name="uploadfile4" style="float:right;">
 				</div>
-			
+				<br>
+				<br>
 				<button type="submit" class="btn btn-default">Submit
 					Button</button>
 				<button type="reset" class="btn btn-default">Reset Button</button>

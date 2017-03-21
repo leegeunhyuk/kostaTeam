@@ -6,21 +6,20 @@
 body {
   background-color: white;
 }
-#wrapper {
-  width: 100%;
+.meter {
+	position: absolute;
+    height: 40px;
+    margin: 0;
+    background-color: #63a541;
 }
-#page-wrapper {
-  padding: 0 15px;
-  min-height: 568px;
-  background-color: white;
-}
-@media (min-width: 768px) {
-  #page-wrapper {
-    position: inherit;
-    margin: 0 0 0 250px;
-    padding: 0 30px;
-    border-left: 1px solid #e7e7e7;
-  }
+.caption {
+    position: relative;
+    display: block;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
 }
 .navbar-top-links {
   margin-right: 0;
@@ -431,4 +430,15 @@ table.dataTable thead .sorting:after {
     border-right-width: 14px;
     border-left-width: 0;
   }
+  .large-block-grid-2>li {
+		list-style: none;
+		width: 50%
+	}
+	.large-block-grid-2>li:nth-of-type(1n) {
+		clear: none
+	}
+	.large-block-grid-2>li:nth-of-type(2n+1) {
+		clear: both
+	}
+  
 }

@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
+<c:set var="ctx" value="${pageContext.request.contextPath }"/>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -60,17 +61,19 @@
 
 			<c:choose>
 				<c:when test="${member.id eq null || empty member.id }">
-				
-					<input class="form-group" placeholder="E-mail" name="email" size="10"
-						type="email" autofocus>
-
-
-					<input class="form-group" placeholder="Password" name="password" size="10"
-						type="password" value="">
-
-					<!-- Change this to a button or input when using this as a form -->
-					<a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
-					<a href="index.html" class="btn btn-lg btn-success btn-block">Join</a>
+					
+					<form action="${ctx }/login.do" method="post" id="loginform")>
+						<input class="form-group" placeholder="E-mail" name="id" size="10"
+							type="email" autofocus>
+	
+	
+						<input class="form-group" placeholder="Password" name="pw" size="10"
+							type="password" value="">
+	
+						<!-- Change this to a button or input when using this as a form -->
+						<a href="#" onclick="document.getElementById('loginform').submit();" class="btn btn-lg btn-success btn-block">Login</a>
+						<a href="index.html" class="btn btn-lg btn-success btn-block">Join</a>
+					</form>
 				</c:when>
 
 				<c:otherwise>
@@ -86,7 +89,8 @@
 										</span>
 									</div>
 									<div>Lorem ipsum dolor sit amet, consectetur adipiscing
-										elit. Pellentesque eleifend...</div>
+										elit. Pellentesque eleifend...
+									</div>
 							</a></li>
 							<li class="divider"></li>
 							<li><a href="#">

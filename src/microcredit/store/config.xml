@@ -5,7 +5,7 @@
 
 <configuration>
 
-	<properties resource="microcredit/store/dataSource.properties"/>
+	<properties resource="microcredit/store/datasource.properties"/>
 	
 	<typeAliases>
 		<typeAlias type="microcredit.domain.Member" alias="Member"/>
